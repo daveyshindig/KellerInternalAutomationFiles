@@ -68,7 +68,7 @@ if __name__ == '__main__':
 
     processCommandLineArguments()
 
-    workingDir = os.chdir('/usr/local/smb-share/1.Projects/1.12.NaturalVentilation/Keller_indoor_csv_files/')
+    os.chdir('/usr/local/smb-share/1.Projects/1.12.NaturalVentilation/Keller_indoor_csv_files')
 
     fileNames = getCSVFilenames()
     success = True
@@ -126,7 +126,7 @@ if __name__ == '__main__':
         lineCnt = 0
         sys.stderr.write(msg)
         msgBody += msg
-        shutil.move(filename, workingDir + '/archive/' + filename)
+        shutil.move(filename, os.getcwd() + '/archive/' + filename)
 
     if not anyFailure:
         msg = "Finished inserting Keller indoor data records.\n"
